@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 
-const tools = [
+const services = [
     {
         label: 'Conversation',
         icon: MessageSquare,
@@ -48,7 +48,7 @@ export default function DashboardPage() {
             </div>
             <div className="px-4 md:px-14 lg:px-20">
                 <div className="grid gap-3 grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5">
-                    {tools.map((tool) => (
+                    {services.map((tool) => (
                         <div
                             onClick={() => router.push(tool.href)}
                             key={tool.href}
