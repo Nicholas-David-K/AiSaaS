@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 
-export const tools = [
+const tools = [
     {
         label: 'Conversation',
         icon: MessageSquare,
