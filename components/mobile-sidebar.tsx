@@ -25,9 +25,9 @@ const MobileSidebar = ({ apiLimitCount }: Props) => {
     return (
         <Sheet>
             <SheetTrigger>
-                <Button variant="ghost" size="lg" className="md:hidden">
+                <div className="md:hidden">
                     <Menu />
-                </Button>
+                </div>
             </SheetTrigger>
             <SheetContent side="left" className="p-0 w-72">
                 <Sidebar apiLimitCount={apiLimitCount} />

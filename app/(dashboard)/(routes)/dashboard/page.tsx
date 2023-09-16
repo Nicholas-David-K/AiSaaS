@@ -1,17 +1,8 @@
 'use client';
 
-import {
-    ArrowRight,
-    CodeIcon,
-    ImageIcon,
-    MessageSquare,
-    Music,
-    VideoIcon,
-} from 'lucide-react';
+import { CodeIcon, ImageIcon, MessageSquare } from 'lucide-react';
 
-import { Card } from '@/components/ui/card';
 import Image from 'next/image';
-import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 
@@ -64,14 +55,13 @@ export default function DashboardPage() {
                             className="cursor-pointer"
                         >
                             <div className="basis-full relative hover:opacity-95">
-                                <div className="z-0 w-full, h-96 rounded-sm">
+                                <div className="z-0 w-full, h-96 rounded-sm relative">
                                     <Image
                                         fill
-                                        objectFit="cover"
                                         src={tool.image}
-                                        alt="founder-img"
-                                        sizes="(max-width: 1080px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        className="rounded-sm"
+                                        alt="dash-img"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="rounded-sm object-cover"
                                     />
                                 </div>
                                 <div className="absolute z-1 bottom-0 left-0 w-full h-full bg-gradient-dark rounded-sm"></div>
