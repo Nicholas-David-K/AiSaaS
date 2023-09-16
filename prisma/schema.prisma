@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model UserApiLimit {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @unique
+  count     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model UserSubscription {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @unique
+
+  stripeCustomerId       String?  @unique @map(name: "stripe_customer_id")
+  stripeSubscriptionId   String?  @unique @map(name: "stripe_subscriptions_id")
+  stripePriceId          String?  @map(name: "stripe_price_id")
+  stripeCurrentPeriodEnd DateTime @map(name: "stripe_current_period_end")
+}
+
+model MpesaSubscription {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @unique
+
+  subscriptionAmount    String?  @map(name: "subscription_amount")
+  mpesaReceiptNumber    String?  @map(name: "mpesa_receipt_id")
+  phoneNumber           String?  @map(name: "phone_number")
+  mpesaCurrentPeriodEnd DateTime @map(name: "mpesa_current_period_end")
+}
+
+model C2BTransaction {
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @unique
+
+  transactionType       String
+  transID               String
+  transTime             String
+  transAmount           Float
+  businessShortCode     String
+  billRefNumber         String?  @map(name: "bill_ref_number")
+  invoiceNumber         String?  @map(name: "invoice_number")
+  orgAccountBalance     String?  @map(name: "org_account_balance")
+  thirdPartyTransID     String?  @map(name: "third_party_trans_id")
+  msisdn                String
+  firstName             String
+  middleName            String?
+  lastName              String
+  mpesaCurrentPeriodEnd DateTime @map(name: "mpesa_current_period_end")
+}

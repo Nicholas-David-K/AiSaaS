@@ -1,0 +1,17 @@
+import { AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
+
+import { Avatar } from './ui/avatar';
+import React from 'react';
+import { useUser } from '@clerk/nextjs';
+
+type Props = {};
+
+export const BotAvatar = (props: Props) => {
+    const { user } = useUser();
+
+    return (
+        <Avatar className="h-8 w-8">
+            <AvatarImage className="p-1" src="/images/logo.png" />
+        </Avatar>
+    );
+};
