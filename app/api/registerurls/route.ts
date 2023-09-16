@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     }
 
     const requestPayload = {
-        ShortCode: '600989',
+        ShortCode: '600986',
         ResponseType: 'Completed',
         ConfirmationURL: `${process.env.NEXT_PUBLIC_APP_URL}/api/confirmation`,
         ValidationURL: `${process.env.NEXT_PUBLIC_APP_URL}/api/validation`,

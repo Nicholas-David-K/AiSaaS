@@ -21,11 +21,11 @@ export async function POST(req: Request) {
     }
 
     const requestPayload = {
-        ShortCode: '600989',
+        ShortCode: '600986',
         CommandID: 'CustomerPayBillOnline',
-        Amount: '1',
+        Amount: amount,
         Msisdn: '254708374149',
-        BillRefNumber: '123456789',
+        BillRefNumber: accountReference,
     };
 
     try {
