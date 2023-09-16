@@ -39,7 +39,7 @@ export async function POST(req: Request) {
         PartyA: phoneNumber,
         PartyB: '174379',
         PhoneNumber: phoneNumber,
-        CallBackURL: `${process.env.NEXT_PUBLIC_APP_URL}/api/stkstatus`,
+        CallBackURL: 'https://ai-saas-ebon.vercel.app/api/stkstatus', // `${process.env.NEXT_PUBLIC_APP_URL}/api/stkstatus`,
         AccountReference: accountReference,
         TransactionDesc: 'Test',
     };

@@ -49,7 +49,7 @@ const MpesaPage = () => {
 
             const response = await axios.post('/api/mpesa', data);
 
-            console.log('RESPONSE DATA', response.data);
+            console.log('RESPONSE_DATA', response.data);
 
             if (response.data['ResponseCode'] === '0') {
                 sessionStorage.setItem('userInfo', JSON.stringify(data));
