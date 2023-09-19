@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     }
 
     const requestPayload = {
-        ShortCode: '600986',
+        ShortCode: '600991',
         CommandID: 'CustomerPayBillOnline',
         Amount: amount,
         Msisdn: '254708374149',
