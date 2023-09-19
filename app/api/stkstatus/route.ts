@@ -5,7 +5,7 @@ import prismadb from '@/lib/prismadb';
 
 export async function POST(req: Request) {
     try {
-        const { userId, user } = auth();
+        const { userId } = auth();
 
         const data = await req.json();
         console.log(
@@ -13,7 +13,7 @@ export async function POST(req: Request) {
             data.Body.stkCallback.CallbackMetadata || data.Body
         );
 
-        if (!user || !userId) {
+        if (!userId) {
             return new NextResponse('Unauthorized', { status: 401 });
         }
 
