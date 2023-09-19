@@ -8,12 +8,14 @@ export async function POST(req: Request, res: NextApiResponse) {
     try {
         const data = await req.json();
 
-        const amount =
-            data['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'];
-        const mpesa_receipt_number =
-            data['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'];
-        const phone_number =
-            data['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'];
+        // const amount =
+        //     data['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'];
+        // const mpesa_receipt_number =
+        //     data['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'];
+        // const phone_number =
+        //     data['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'];
+
+        console.log(data);
 
         return NextResponse.json(data, { status: 200 });
     } catch (error) {
