@@ -6,6 +6,7 @@ import prismadb from '@/lib/prismadb';
 export async function POST(req: Request) {
     try {
         const { userId } = auth();
+        const user = await currentUser();
 
         const data = await req.json();
         console.log(
@@ -13,8 +14,10 @@ export async function POST(req: Request) {
             data.Body.stkCallback.CallbackMetadata || data.Body
         );
 
-        if (!userId) {
-            return new NextResponse('Unauthorized', { status: 401 });
+        if (!userId || !user) {
+            return new NextResponse('Unauthorized. You must be logged in.', {
+                status: 401,
+            });
         }
 
         const callbackData = data.Body.stkCallback.CallbackMetadata.Item;
@@ -72,8 +75,8 @@ export async function POST(req: Request) {
         });
 
         return NextResponse.json('Data saved successfully', { status: 200 });
-    } catch (error) {
-        console.error(error);
+    } catch (error: any) {
+        console.error(error.response);
         return NextResponse.json('Internal Server Error', { status: 500 });
     }
 }
