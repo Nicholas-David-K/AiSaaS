@@ -5,11 +5,13 @@ import prismadb from '@/lib/prismadb';
 
 export async function POST(req: Request) {
     try {
-        const { userId } = auth();
-        const user = await currentUser();
+        const { userId, user } = auth();
 
         const data = await req.json();
-        console.log('CALLBACK_URL_DATA', data.Body.stkCallback.CallbackMetadata);
+        console.log(
+            'CALLBACK_URL_DATA',
+            data.Body.stkCallback.CallbackMetadata || data.Body
+        );
 
         if (!user || !userId) {
             return new NextResponse('Unauthorized', { status: 401 });
