@@ -12,11 +12,16 @@ export async function POST(req: Request) {
         const data = await req.json();
         console.log('CONFIRMATION_DATA', data);
 
-        if (!userId || !user) {
-            return new NextResponse('Anauthorized', { status: 401 });
-        }
+        return NextResponse.json('Successfully Created', { status: 200 });
+    } catch (error) {
+        console.error(error);
+        return NextResponse.json('Internal Server Error', { status: 500 });
+    }
+}
 
-        const mpesa_subscription = await prismadb.c2BTransaction.findUnique({
+/**
+ * 
+ * const mpesa_subscription = await prismadb.c2BTransaction.findUnique({
             where: {
                 userId: userId,
             },
@@ -63,11 +68,6 @@ export async function POST(req: Request) {
                     ),
                 },
             });
-
-            return NextResponse.json('Successfully Created', { status: 200 });
-        }
-    } catch (error) {
-        console.error(error);
-        return NextResponse.json('Internal Server Error', { status: 500 });
-    }
-}
+ * 
+ * 
+ */

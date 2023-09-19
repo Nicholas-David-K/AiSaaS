@@ -3,23 +3,13 @@ import { auth, currentUser } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
 import prismadb from '@/lib/prismadb';
 
-export async function GET(req: Request) {
+export async function POST(req: Request) {
     try {
         const { userId } = auth();
         const user = await currentUser();
 
         const data = await req.json();
-
-        if (!userId || !user) {
-            return new NextResponse('Anauthorized', { status: 401 });
-        }
-
-        const amount =
-            data['Body']['stkCallback']['CallbackMetadata']['Item'][0]['Value'];
-        const mpesa_receipt_number =
-            data['Body']['stkCallback']['CallbackMetadata']['Item'][1]['Value'];
-        const phone_number =
-            data['Body']['stkCallback']['CallbackMetadata']['Item'][4]['Value'];
+        console.log('CALLBACK_URL_DATA', data);
 
         return NextResponse.json(data, { status: 200 });
     } catch (error) {
