@@ -9,7 +9,7 @@ export async function POST(req: Request) {
         const user = await currentUser();
 
         const data = await req.json();
-        console.log('CALLBACK_URL_DATA', data);
+        console.log('CALLBACK_URL_DATA', data.Body.stkCallback.CallbackMetadata);
 
         return NextResponse.json(data, { status: 200 });
     } catch (error) {
