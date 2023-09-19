@@ -13,7 +13,7 @@ export async function POST(req: Request) {
         ShortCode: '600991',
         ResponseType: 'Completed',
         ConfirmationURL: `${process.env.NEXT_PUBLIC_APP_URL}/api/confirmation`,
-        ValidationURL: `${process.env.NEXT_PUBLIC_APP_URL}/api/validation`,
+        ValidationURL: `${process.env.NEXT_BASE_URL}/api/validation`,
     };
 
     try {
