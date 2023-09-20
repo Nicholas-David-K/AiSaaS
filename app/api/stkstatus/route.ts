@@ -6,10 +6,8 @@ import prismadb from '@/lib/prismadb';
 export async function POST(req: Request) {
     try {
         const { userId } = auth();
-        console.log(userId);
 
         const user = await currentUser();
-        console.log(user);
 
         const data = await req.json();
 
@@ -77,8 +75,8 @@ export async function POST(req: Request) {
         });
 
         return NextResponse.json('Data saved successfully', { status: 200 });
-    } catch (error: any) {
-        console.error(error.response);
+    } catch (error) {
+        console.error('STK_STATUS_ERROR', error);
         return NextResponse.json('Internal Server Error', { status: 500 });
     }
 }

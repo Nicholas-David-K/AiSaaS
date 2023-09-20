@@ -24,6 +24,7 @@ const montserrat = Montserrat({
 
 type Props = {
     apiLimitCount: number;
+    isPro: boolean;
 };
 
 const routes = [
@@ -59,7 +60,7 @@ const routes = [
     },
 ];
 
-const Sidebar = ({ apiLimitCount = 0 }: Props) => {
+const Sidebar = ({ apiLimitCount = 0, isPro = false }: Props) => {
     const pathname = usePathname();
 
     return (
@@ -101,7 +102,7 @@ const Sidebar = ({ apiLimitCount = 0 }: Props) => {
                     ))}
                 </div>
             </div>
-            <FreeCounter apiLimitCount={apiLimitCount} />
+            <FreeCounter apiLimitCount={apiLimitCount} isPro={isPro} />
         </div>
     );
 };

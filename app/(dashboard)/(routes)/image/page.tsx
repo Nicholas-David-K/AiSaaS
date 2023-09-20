@@ -23,6 +23,7 @@ import { Input } from '@/components/ui/input';
 import Loader from '@/components/Loader';
 import axios from 'axios';
 import { cn } from '@/lib/utils';
+import toast from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
 import useProModal from '@/hooks/use-pro-modal';
 import { useRouter } from 'next/navigation';
@@ -59,6 +60,8 @@ const ImagePage = (props: Props) => {
         } catch (error: any) {
             if (error?.response?.status === 403) {
                 proModal.onOpen();
+            } else {
+                toast.error('Something went wrong');
             }
         } finally {
             router.refresh();

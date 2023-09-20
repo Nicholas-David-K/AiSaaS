@@ -15,6 +15,7 @@ import { Button } from './ui/button';
 import { Card } from './ui/card';
 import axios from 'axios';
 import { cn } from '@/lib/utils';
+import toast from 'react-hot-toast';
 import useProModal from '@/hooks/use-pro-modal';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -57,7 +58,7 @@ const ProModal = (props: Props) => {
             const response = await axios.get('/api/stripe');
             window.location.href = response.data.url;
         } catch (error) {
-            console.log('STRIPE_CLIENT_ERROR', error);
+            toast.error('Something went wrong');
         } finally {
             setLoading(false);
         }
@@ -128,6 +129,7 @@ const ProModal = (props: Props) => {
                             <Zap className="w-4 h-4 ml-2 fill-white" />
                         </Button>
                         <Button
+                            disabled={loading}
                             variant="mpesa"
                             size="lg"
                             className="w-full"
