@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
 import { getCurrentUserWithId } from '@/lib/auth-util';
 import prismadb from '@/lib/prismadb';
 
-export default async function POST(req: Request) {
+export async function POST(req: Request) {
     try {
         const data = await req.json();
 
