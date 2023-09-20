@@ -7,7 +7,7 @@ export default authMiddleware({
     publicRoutes: [
         '/',
         '/api/webhook',
-        // '/api/stkstatus',
+        '/api/stkstatus',
         '/api/confirmation',
         '/api/validation',
     ],
