@@ -6,9 +6,13 @@ import prismadb from '@/lib/prismadb';
 export async function POST(req: Request) {
     try {
         const { userId } = auth();
+        console.log(userId);
+
         const user = await currentUser();
+        console.log(user);
 
         const data = await req.json();
+
         console.log(
             'CALLBACK_URL_DATA',
             data.Body.stkCallback.CallbackMetadata || data.Body
