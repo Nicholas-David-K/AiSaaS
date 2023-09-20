@@ -120,6 +120,7 @@ const ProModal = (props: Props) => {
                 <DialogFooter>
                     <div className="flex flex-col justify-center w-full gap-y-2">
                         <Button
+                            disabled={loading}
                             variant="premium"
                             size="lg"
                             className="w-full"
