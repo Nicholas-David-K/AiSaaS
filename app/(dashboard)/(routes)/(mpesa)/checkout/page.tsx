@@ -54,7 +54,7 @@ const MpesaPage = () => {
             if (response.data['ResponseCode'] === '0') {
                 sessionStorage.setItem('userInfo', JSON.stringify(data));
                 sessionStorage.setItem(
-                    'CheckoutRequestID:',
+                    'CheckoutRequestID',
                     response.data['CheckoutRequestID']
                 );
 

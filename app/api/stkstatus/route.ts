@@ -1,12 +1,14 @@
+import { NextRequest, NextResponse } from 'next/server';
 import { auth, currentUser } from '@clerk/nextjs';
 
-import { NextResponse } from 'next/server';
 import prismadb from '@/lib/prismadb';
 
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
     try {
-        const { userId } = auth();
-        const user = await currentUser();
+        const authUser = req.authUser;
+
+        const userId = authUser?.id;
+        const user = authUser;
 
         console.log(user);
         console.log(userId);
