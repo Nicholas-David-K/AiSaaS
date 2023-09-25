@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth, currentUser } from '@clerk/nextjs';
 
-import { getAuth } from '@clerk/nextjs/server';
 import prismadb from '@/lib/prismadb';
+import { storeUser } from '@/lib/store-user';
 
 export async function POST(req: NextRequest) {
     try {
-        const { userId, user } = getAuth(req);
+        await storeUser();
 
-        console.log(user);
-        console.log(userId);
+        const sessionInfo = sessionStorage.getItem('UserData');
+        const userData = JSON.parse(sessionInfo as any);
+
+        const { user, userId } = userData;
 
         const data = await req.json();
 
