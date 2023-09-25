@@ -1,19 +1,13 @@
-import { auth, currentUser } from '@clerk/nextjs';
-
 import { NextResponse } from 'next/server';
-import { fetchUserDataMiddleware } from '@/middleware';
+import axios from 'axios';
 import prismadb from '@/lib/prismadb';
 
 export async function POST(req: Request) {
     try {
         const data = await req.json();
 
-        // const { userId } = auth();
-        // const user = await currentUser();
-
-        const {
-            userData: { user, userId },
-        } = await fetchUserDataMiddleware();
+        const userResponse = await axios.get('/api/userdata');
+        const { userId, user } = userResponse.data;
 
         console.log(user);
         console.log(userId);
