@@ -6,7 +6,9 @@ export async function POST(req: Request) {
     try {
         const data = await req.json();
 
-        const userResponse = await axios.get('/api/userdata');
+        const userResponse = await axios.get(
+            `${process.env.NEXT_PUBLIC_APP_URL}/api/userdata`
+        );
         const { userId, user } = userResponse.data;
 
         console.log(user);
