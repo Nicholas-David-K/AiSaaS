@@ -1,3 +1,5 @@
+import { auth, currentUser } from '@clerk/nextjs';
+
 import Navbar from '@/components/Navbar';
 import React from 'react';
 import Sidebar from '@/components/Sidebar';

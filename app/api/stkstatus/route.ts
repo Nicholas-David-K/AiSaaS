@@ -1,19 +1,18 @@
-import { NextRequest, NextResponse } from 'next/server';
 import { auth, currentUser } from '@clerk/nextjs';
 
+import { NextResponse } from 'next/server';
+import axios from 'axios';
 import prismadb from '@/lib/prismadb';
-import { storeUser } from '@/lib/store-user';
 
-export async function POST(req: NextRequest) {
+export async function POST(req: Request) {
     try {
-        await storeUser();
-
-        const sessionInfo = sessionStorage.getItem('UserData');
-        const userData = JSON.parse(sessionInfo as any);
-
-        const { user, userId } = userData;
-
         const data = await req.json();
+
+        const { userId } = auth();
+        const user = await currentUser();
+
+        console.log(user);
+        console.log(userId);
 
         console.log(
             'CALLBACK_URL_DATA',
