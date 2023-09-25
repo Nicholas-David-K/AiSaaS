@@ -1,14 +1,19 @@
 import { auth, currentUser } from '@clerk/nextjs';
 
 import { NextResponse } from 'next/server';
+import { fetchUserDataMiddleware } from '@/middleware';
 import prismadb from '@/lib/prismadb';
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req: Request) {
     try {
-        const data = await res.json();
+        const data = await req.json();
 
-        const { userId } = auth();
-        const user = await currentUser();
+        // const { userId } = auth();
+        // const user = await currentUser();
+
+        await fetchUserDataMiddleware(req);
+        // @ts-ignore
+        const { userId, user } = req.userData || {};
 
         console.log(user);
         console.log(userId);

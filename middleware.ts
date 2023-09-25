@@ -1,3 +1,5 @@
+import { auth, currentUser } from '@clerk/nextjs';
+
 import { authMiddleware } from '@clerk/nextjs';
 
 // This example protects all routes including api/trpc routes
@@ -15,4 +17,13 @@ export default authMiddleware({
 
 export const config = {
     matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+};
+
+// pages/api/middleware.js
+
+export const fetchUserDataMiddleware = async (req: any) => {
+    req.userData = {
+        userId: auth().userId,
+        user: await currentUser(),
+    };
 };
