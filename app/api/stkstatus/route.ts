@@ -11,9 +11,7 @@ export async function POST(req: Request) {
         // const { userId } = auth();
         // const user = await currentUser();
 
-        await fetchUserDataMiddleware(req);
-        // @ts-ignore
-        const { userId, user } = req.userData || {};
+        const { userId, user } = await fetchUserDataMiddleware(req);
 
         console.log(user);
         console.log(userId);
