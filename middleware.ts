@@ -10,6 +10,7 @@ export default authMiddleware({
         '/api/stkstatus',
         '/api/confirmation',
         '/api/validation',
+        '/api/userdata',
     ],
 });
 
