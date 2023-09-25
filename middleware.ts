@@ -19,13 +19,6 @@ export default authMiddleware({
         '/api/validation',
         '/api/stkstatus',
     ],
-
-    afterAuth: async (auth, req: NextRequest) => {
-        // Check if there is a user, and if so, store the user information in the request
-        if (auth.user) {
-            req.authUser = auth.user;
-        }
-    },
 });
 
 export const config = {
