@@ -21,21 +21,14 @@ export const config = {
 
 // pages/api/middleware.js
 
-// Define a custom type for the Request object
-type CustomRequest = Request & {
-    userData?: {
-        userId: string | null;
-        user: any;
-    };
-};
-
-export const fetchUserDataMiddleware = async (req: CustomRequest) => {
+export const fetchUserDataMiddleware = async () => {
     const userId = auth().userId;
     const user = await currentUser();
 
-    // Return userId and user as properties of req.userData
-    return (req.userData = {
+    const userData = {
         userId,
         user,
-    });
+    };
+
+    return { userData };
 };

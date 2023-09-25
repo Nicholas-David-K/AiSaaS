@@ -11,7 +11,9 @@ export async function POST(req: Request) {
         // const { userId } = auth();
         // const user = await currentUser();
 
-        const { userId, user } = await fetchUserDataMiddleware(req);
+        const {
+            userData: { user, userId },
+        } = await fetchUserDataMiddleware();
 
         console.log(user);
         console.log(userId);
