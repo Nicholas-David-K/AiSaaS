@@ -12,6 +12,8 @@ export async function GET() {
         const { userId } = auth();
         const user = await currentUser();
 
+        console.log('STRIPE_USER', { userId, user });
+
         if (!userId || !user) {
             return new NextResponse('Anauthorized', { status: 401 });
         }

@@ -1,14 +1,15 @@
 import { auth, currentUser } from '@clerk/nextjs';
 
 import { NextResponse } from 'next/server';
-import { getCurrentUserWithId } from '@/lib/auth-util';
 import prismadb from '@/lib/prismadb';
 
 export async function POST(req: Request) {
     try {
         const data = await req.json();
 
-        const { user, userId } = await getCurrentUserWithId();
+        const user = await currentUser();
+        const { userId } = auth();
+
         console.log(user);
         console.log(userId);
 
