@@ -1,18 +1,17 @@
+import { auth, currentUser } from '@clerk/nextjs';
+
 import { NextResponse } from 'next/server';
-import axios from 'axios';
 import prismadb from '@/lib/prismadb';
 
 export async function POST(req: Request) {
     try {
-        const data = await req.json();
-
-        const userResponse = await axios.get(
-            `${process.env.NEXT_PUBLIC_APP_URL}/api/userdata`
-        );
-        const { userId, user } = userResponse.data;
+        const { userId } = auth();
+        const user = await currentUser();
 
         console.log(user);
         console.log(userId);
+
+        const data = await req.json();
 
         console.log(
             'CALLBACK_URL_DATA',
