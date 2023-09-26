@@ -72,7 +72,6 @@ const ProModal = (props: Props) => {
             console.log('MPESA_CLIENT_ERROR', error);
         } finally {
             setLoading(false);
-            proModal.onClose();
         }
     };
 
