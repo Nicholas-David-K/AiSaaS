@@ -61,6 +61,7 @@ const ProModal = (props: Props) => {
             toast.error('Something went wrong');
         } finally {
             setLoading(false);
+            proModal.onClose();
         }
     };
 
