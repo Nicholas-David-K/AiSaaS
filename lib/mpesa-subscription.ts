@@ -1,16 +1,13 @@
-import { auth, currentUser } from '@clerk/nextjs';
-
 import { NextResponse } from 'next/server';
+import { auth } from '@clerk/nextjs';
 import prismadb from './prismadb';
 
 export const saveMpesaSubscription = async (data: any) => {
     const { userId } = auth();
-    const user = await currentUser();
 
-    console.log(user);
     console.log(userId);
 
-    if (!userId || !user) {
+    if (!userId) {
         return new NextResponse('Unauthorized', { status: 401 });
     }
 
