@@ -5,7 +5,7 @@ export async function POST(req: Request) {
     try {
         const data = await req.json();
 
-        await saveMpesaSubscription(data);
+        saveMpesaSubscription(data);
 
         return NextResponse.json('Sucessfull', { status: 200 });
     } catch (error) {
