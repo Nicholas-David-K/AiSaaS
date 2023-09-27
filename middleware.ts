@@ -11,7 +11,7 @@ export default authMiddleware({
         '/api/webhook',
         '/api/confirmation',
         '/api/validation',
-        '/api/sktstatus',
+        '/api/stkstatus',
     ],
 });
 
