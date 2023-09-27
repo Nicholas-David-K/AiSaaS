@@ -3,7 +3,7 @@ import { auth } from '@clerk/nextjs';
 import prismadb from './prismadb';
 
 export const increaseApiLimit = async () => {
-    const { userId } = auth(); // current user
+    const { userId } = auth();
 
     if (!userId) {
         return;
