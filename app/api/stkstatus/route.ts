@@ -7,7 +7,7 @@ import { getAuth } from '@clerk/nextjs/server';
 export async function POST(req: NextRequest) {
     try {
         const data = await req.json();
-        const { userId } = getAuth(req);
+        const { userId } = auth();
 
         console.log(data);
         console.log('USER_ID: ', userId);
