@@ -130,14 +130,17 @@ const ProModal = (props: Props) => {
                             <Zap className="w-4 h-4 ml-2 fill-white" />
                         </Button>
                         <Button
-                            disabled={loading}
+                            disabled={true}
                             variant="mpesa"
                             size="lg"
-                            className="w-full"
+                            className="w-full flex flex-col"
                             onClick={onMpesaSubscribe}
                         >
-                            Upgrade with M-Pesa
-                            <Zap className="w-4 h-4 ml-2 fill-white" />
+                            <div className="flex items-center">
+                                Upgrade with M-Pesa
+                                <Zap className="w-4 h-4 ml-2 fill-white" />
+                            </div>
+                            <p className="text-xs">(Feature coming soon)</p>
                         </Button>
                     </div>
                 </DialogFooter>

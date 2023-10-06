@@ -5,6 +5,7 @@ import { CodeIcon, ImageIcon, MessageSquare } from 'lucide-react';
 import Image from 'next/image';
 import { auth } from '@clerk/nextjs';
 import { cn } from '@/lib/utils';
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 const services = [

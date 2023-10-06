@@ -165,6 +165,7 @@ const MpesaPage = () => {
                                     Generate Payment
                                 </Button>
                             </form>
+
                             <p className="text-sm text-muted-foreground col-span-3 mt-2">
                                 A payment request will be sent to your M-Pesa phone
                                 number

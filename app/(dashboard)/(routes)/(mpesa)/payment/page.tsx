@@ -48,7 +48,7 @@ const Payments = () => {
                         Total
                     </p>
                     <p className="text-sm text-muted-foreground font-bold">
-                        KES. 2000
+                        KES. 1 Shilling only
                     </p>
                 </div>
             </div>
@@ -73,7 +73,7 @@ const Payments = () => {
                     </li>
                     <li>
                         6. Enter Amount:{' '}
-                        <span className="font-semibold">KES 1,300</span>
+                        <span className="font-semibold">KES 1.00</span>
                     </li>
                 </ol>
                 <Button
